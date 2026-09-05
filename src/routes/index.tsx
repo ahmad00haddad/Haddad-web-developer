@@ -65,7 +65,7 @@ function Index() {
         </header>
 
         {/* Hero */}
-        <section id="top" className="mx-auto max-w-7xl px-5 pb-24 pt-10 sm:px-8 sm:pt-16">
+        <section id="top" className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 sm:pt-16">
           <div className="relative">
             <div className="pointer-events-none absolute inset-0 hidden md:block">
               <img
@@ -73,14 +73,14 @@ function Index() {
                 alt="Dark architectural glass detail"
                 width={900}
                 height={1200}
-                className="absolute left-[6%] top-[8%] h-56 w-40 rounded-sm object-cover opacity-70 shadow-2xl lg:h-72 lg:w-52"
+                className="absolute left-[6%] top-[8%] h-56 w-40 rounded-sm object-cover opacity-90 shadow-2xl lg:h-72 lg:w-52"
               />
               <img
                 src={hero2}
                 alt="Circuit board glowing in the dark"
                 width={1200}
                 height={800}
-                className="absolute right-[4%] top-[28%] h-40 w-64 rounded-sm object-cover opacity-70 shadow-2xl lg:h-52 lg:w-80"
+                className="absolute right-[4%] top-[28%] h-40 w-64 rounded-sm object-cover opacity-90 shadow-2xl lg:h-52 lg:w-80"
               />
               <img
                 src={work2}
@@ -88,13 +88,13 @@ function Index() {
                 loading="lazy"
                 width={900}
                 height={1100}
-                className="absolute bottom-[2%] left-[38%] h-40 w-32 rounded-sm object-cover opacity-60 shadow-2xl lg:h-52 lg:w-40"
+                className="absolute bottom-[2%] left-[38%] h-40 w-32 rounded-sm object-cover opacity-80 shadow-2xl lg:h-52 lg:w-40"
               />
             </div>
 
             <h1 className="relative z-20 text-center font-display font-extrabold uppercase leading-[0.82] tracking-tighter">
-              <span className="block text-[19vw] sm:text-[17vw]">Creative</span>
-              <span className="block text-[19vw] italic sm:text-[17vw]">
+              <span className="block text-[10.5vw] lg:text-[8.6rem]">Creative</span>
+              <span className="block text-[10.5vw] italic lg:text-[8.6rem]">
                 <span className="font-serif normal-case">Dev</span>
               </span>
             </h1>
@@ -154,27 +154,27 @@ function Index() {
         <section id="work" className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-10 select-none text-center font-display text-[16vw] font-extrabold uppercase leading-none tracking-[0.2em] text-foreground/[0.04]"
+            className="pointer-events-none absolute inset-x-0 top-6 select-none text-center font-display text-[15vw] font-extrabold uppercase leading-none tracking-[0.18em] text-foreground/[0.05]"
           >
             Work
           </div>
 
-          <span className="pointer-events-none absolute left-0 top-1/3 hidden rotate-90 origin-left text-[10px] uppercase tracking-[0.35em] text-muted-foreground lg:block">
+          <span className="pointer-events-none absolute -left-6 top-1/3 hidden rotate-90 origin-left text-[10px] uppercase tracking-[0.35em] text-muted-foreground lg:block">
             UX / UI
           </span>
-          <span className="pointer-events-none absolute right-0 top-1/2 hidden -rotate-90 origin-right text-[10px] uppercase tracking-[0.35em] text-muted-foreground lg:block">
+          <span className="pointer-events-none absolute -right-6 top-1/2 hidden -rotate-90 origin-right text-[10px] uppercase tracking-[0.35em] text-muted-foreground lg:block">
             Since 2024
           </span>
 
-          <div className="relative z-10 pt-20">
-            <div className="md:relative md:h-[720px]">
+          <div className="relative z-10 pt-24">
+            <div className="md:relative md:h-[860px]">
               <Card
                 src={work1}
                 alt="Laptop glowing in a dark room"
                 tags={["WEB", "AI"]}
                 index="01"
                 title="Memoria"
-                className="md:absolute md:left-0 md:top-0 md:w-[56%]"
+                className="md:absolute md:left-0 md:top-0 md:w-[54%]"
                 ratio="aspect-[16/10]"
               />
               <Card
@@ -183,7 +183,7 @@ function Index() {
                 tags={["BRAND"]}
                 index="02"
                 title="Mouje Studio"
-                className="mt-8 md:absolute md:right-[4%] md:top-[18%] md:mt-0 md:w-[32%]"
+                className="mt-8 md:absolute md:right-[2%] md:top-[16%] md:mt-0 md:w-[32%]"
                 ratio="aspect-[4/5]"
               />
               <Card
@@ -192,7 +192,7 @@ function Index() {
                 tags={["PRODUCT", "AI"]}
                 index="03"
                 title="Lovable Production Hub"
-                className="mt-8 md:absolute md:bottom-0 md:left-[14%] md:mt-0 md:w-[46%]"
+                className="mt-8 md:absolute md:bottom-0 md:left-[30%] md:mt-0 md:w-[44%]"
                 ratio="aspect-[16/10]"
               />
             </div>
