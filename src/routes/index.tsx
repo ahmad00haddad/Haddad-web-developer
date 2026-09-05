@@ -93,8 +93,8 @@ function Index() {
             </div>
 
             <h1 className="relative z-20 text-center font-display font-extrabold uppercase leading-[0.82] tracking-tighter">
-              <span className="block text-[16vw] sm:text-[13.5vw] lg:text-[12vw]">Creative</span>
-              <span className="block text-[16vw] italic sm:text-[13.5vw] lg:text-[12vw]">
+              <span className="block text-[10.5vw] lg:text-[8.6rem]">Creative</span>
+              <span className="block text-[10.5vw] italic lg:text-[8.6rem]">
                 <span className="font-serif normal-case">Dev</span>
               </span>
             </h1>
