@@ -293,7 +293,7 @@ function Index() {
                 <span className="mr-2 font-serif text-5xl leading-none text-foreground/40 align-middle">
                   (
                 </span>
-                HELLO! I'm Ahmad Haddad, a Computer Engineer & Web Developer utilizing AI
+                HELLO! I&apos;m Ahmad Haddad, a Computer Engineer &amp; Web Developer utilizing AI
                 to build web experiences.
                 <span className="ml-2 font-serif text-5xl leading-none text-foreground/40 align-middle">
                   )
@@ -449,7 +449,7 @@ function Index() {
         {/* Contact */}
         <footer id="contact" className="mx-auto max-w-7xl px-5 pb-16 pt-24 sm:px-8">
           <h2 className="font-display text-[18vw] font-extrabold uppercase leading-[0.82] tracking-tighter sm:text-[14vw]">
-            Let's <span className="font-serif italic normal-case">Talk</span>
+            Let&apos;s <span className="font-serif italic normal-case">Talk</span>
           </h2>
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border sm:grid-cols-3">
