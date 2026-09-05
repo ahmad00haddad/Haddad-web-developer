@@ -497,9 +497,8 @@ function Card({
   ratio: string;
 }) {
   return (
-    <figure className={group relative }>
-      <div className={
-elative overflow-hidden rounded-sm }>
+    <figure className={`group relative ${className ?? ""}`}>
+      <div className={`relative overflow-hidden rounded-sm ${ratio}`}>
         <img
           src={src}
           alt={alt}
