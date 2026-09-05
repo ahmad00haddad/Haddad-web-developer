@@ -151,3 +151,23 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility olive-glow {
+  background:
+    radial-gradient(60% 50% at 20% 15%, color-mix(in oklab, var(--olive-glow) 45%, transparent), transparent 70%),
+    radial-gradient(50% 40% at 85% 60%, color-mix(in oklab, var(--olive-glow) 28%, transparent), transparent 70%),
+    radial-gradient(70% 50% at 50% 110%, color-mix(in oklab, var(--olive-glow) 22%, transparent), transparent 70%);
+}
+
+@utility glass-pill {
+  background: color-mix(in oklab, var(--foreground) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 14%, transparent);
+  backdrop-filter: blur(12px);
+}
