@@ -282,7 +282,9 @@ function Index() {
             </div>
 
             <h1 className="relative z-20 text-center font-display font-extrabold uppercase leading-[0.82] tracking-tighter">
-              <span className="block text-[10.5vw] lg:text-[8.6rem]">Creative</span>
+              <span className="block text-[10.5vw] lg:text-[8.6rem]">
+                <ScrambleText text="Creative" />
+              </span>
               <span className="block text-[10.5vw] italic lg:text-[8.6rem]">
                 <span className="font-serif normal-case">Dev</span>
               </span>
@@ -462,11 +464,13 @@ function Index() {
               label="Email"
               value="ahmad000haddad@gmail.com"
               href="mailto:ahmad000haddad@gmail.com"
+              copyable={true}
             />
             <ContactItem
               label="WhatsApp"
               value="00962 79 925 6345"
               href="https://wa.me/962799256345"
+              copyable={true}
             />
           </div>
 
@@ -477,6 +481,37 @@ function Index() {
       </div>
     </div>
   );
+}
+
+function ScrambleText({ text }: { text: string }) {
+  const [displayText, setDisplayText] = useState("");
+  const chars = "!<>-_\\\\/[]{}—=+*^?#________";
+  
+  useEffect(() => {
+    let iteration = 0;
+    let interval: ReturnType<typeof setInterval>;
+    
+    interval = setInterval(() => {
+      setDisplayText(
+        text.split("").map((letter, index) => {
+          if (index < iteration) {
+            return text[index];
+          }
+          return chars[Math.floor(Math.random() * chars.length)];
+        }).join("")
+      );
+      
+      if (iteration >= text.length) {
+        clearInterval(interval);
+      }
+      
+      iteration += 1 / 3;
+    }, 30);
+    
+    return () => clearInterval(interval);
+  }, [text]);
+  
+  return <>{displayText || text}</>;
 }
 
 function Card({
@@ -526,15 +561,37 @@ function Card({
   );
 }
 
-function ContactItem({ label, value, href }: { label: string; value: string; href: string }) {
+function ContactItem({ label, value, href, copyable = false }: { label: string; value: string; href: string; copyable?: boolean }) {
+  const [copied, setCopied] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const handleClick = (e: React.MouseEvent) => {
+    if (copyable) {
+      e.preventDefault();
+      navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group bg-card/40 p-6 backdrop-blur-md transition-colors hover:bg-foreground/5"
+      onClick={handleClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => { setIsHovered(false); setCopied(false); }}
+      className="group relative bg-card/40 p-6 backdrop-blur-md transition-colors hover:bg-foreground/5 cursor-pointer"
     >
-      <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{label}</p>
+      <div className="flex items-center justify-between">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{label}</p>
+        {copyable && isHovered && (
+          <span className="animate-in fade-in text-[9px] uppercase tracking-[0.2em] text-primary">
+            {copied ? "Copied! ✔" : "Click to copy"}
+          </span>
+        )}
+      </div>
       <p className="mt-3 truncate text-sm text-foreground transition-colors group-hover:text-primary">
         {value}
       </p>
