@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -36,14 +37,16 @@ const repos = [
   "ahmad00haddad/faiihouse",
   "ahmad00haddad/ahmadhaddad",
   "ahmad00haddad/ababneh-security",
+  "ahmad00haddad/Haddad-web-developer",
   "ahmad00haddad/alfyaa",
   "ahmad00haddad/jeeran",
   "ahmad00haddad/mouj-studio",
   "ahmad00haddad/alen-jaber",
-  "ahmad00haddad/ahmad-haddad-ai-powered-digital-canvas",
 ];
 
 function Index() {
+  const [visibleCount, setVisibleCount] = useState(5);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <div className="olive-glow pointer-events-none fixed inset-0 opacity-70" aria-hidden="true" />
@@ -210,7 +213,7 @@ function Index() {
                 <span>{repos.length}</span>
               </div>
               <ul>
-                {repos.map((repo) => (
+                {repos.slice(0, visibleCount).map((repo) => (
                   <li key={repo} className="border-b border-border last:border-b-0">
                     <a
                       href={`https://github.com/${repo}`}
@@ -229,6 +232,16 @@ function Index() {
                   </li>
                 ))}
               </ul>
+              {visibleCount < repos.length && (
+                <div className="border-t border-border p-4 text-center">
+                  <button
+                    onClick={() => setVisibleCount((prev) => prev + 5)}
+                    className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    View More +
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
