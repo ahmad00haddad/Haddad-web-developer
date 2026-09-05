@@ -26,37 +26,21 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const projects = [
-  {
-    name: "Memoria | ميموريا",
-    url: "https://github.com/ahmad00haddad/memoria",
-    description: "المنصة الأولى المتخصصة في حجز مصورات الأعراس بكل سهولة وموثوقية."
-  },
-  {
-    name: "ناس إربد (Nas Irbid)",
-    url: "https://github.com/ahmad00haddad/nas-irbid",
-    description: "أرشيف حيّ لذاكرة مدينة إربد لتوثيق الحكايات عبر خريطة تفاعلية."
-  },
-  {
-    name: "PetVan",
-    url: "https://github.com/ahmad00haddad/petvan",
-    description: "تطبيق ويب متطور أحدث ثورة في العناية بالحيوانات الأليفة، يجلب العيادة والصالون إلى باب منزلك."
-  },
-  {
-    name: "فزعة (Fazaa-JO)",
-    url: "https://github.com/ahmad00haddad/fazaa-jo",
-    description: "منصة ويب تقدمية تتيح لك نشر طلب مساعدة طارئة ليتم تلبيته فوراً من أشخاص في منطقتك."
-  },
-  {
-    name: "Lovable Production Hub",
-    url: "https://github.com/ahmad00haddad/lovable-production-hub",
-    description: "بيئة مركزية وسريعة الاستجابة لمدير المشروع وأفراد طاقم التصوير للتحضير لأيام التصوير."
-  },
-  {
-    name: "Faii House",
-    url: "https://github.com/ahmad00haddad/faiihouse",
-    description: "محرك تسعير ذكي وسينمائي مصمم لوكالة إنتاج فيديو لتسعير المشاريع."
-  }
+const repos = [
+  "ahmad00haddad/memoria",
+  "ahmad00haddad/nas-irbid",
+  "ahmad00haddad/haddad-rate-card",
+  "ahmad00haddad/petvan",
+  "ahmad00haddad/fazaa-jo",
+  "ahmad00haddad/lovable-production-hub",
+  "ahmad00haddad/faiihouse",
+  "ahmad00haddad/ahmadhaddad",
+  "ahmad00haddad/ababneh-security",
+  "ahmad00haddad/alfyaa",
+  "ahmad00haddad/jeeran",
+  "ahmad00haddad/mouj-studio",
+  "ahmad00haddad/alen-jaber",
+  "ahmad00haddad/ahmad-haddad-ai-powered-digital-canvas",
 ];
 
 function Index() {
@@ -219,31 +203,26 @@ function Index() {
               />
             </div>
 
-            {/* Projects list */}
+            {/* Repo list */}
             <div className="mt-16 rounded-xl border border-border bg-card/40 backdrop-blur-md">
               <div className="flex items-center justify-between border-b border-border px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                <span>Selected Work</span>
-                <span>{projects.length}</span>
+                <span>Repositories</span>
+                <span>{repos.length}</span>
               </div>
               <ul>
-                {projects.map((project) => (
-                  <li key={project.name} className="border-b border-border last:border-b-0">
+                {repos.map((repo) => (
+                  <li key={repo} className="border-b border-border last:border-b-0">
                     <a
-                      href={project.url}
+                      href={`https://github.com/${repo}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex flex-col justify-center gap-2 px-5 py-4 transition-colors hover:bg-foreground/5 sm:grid sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
+                      className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-5 py-4 transition-colors hover:bg-foreground/5"
                     >
-                      <div className="hidden h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_10px_var(--primary)] sm:block" />
-                      <div className="flex flex-col gap-1">
-                        <span className="font-mono text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
-                          {project.name}
-                        </span>
-                        <span className="text-xs text-muted-foreground sm:text-sm">
-                          {project.description}
-                        </span>
-                      </div>
-                      <span className="self-end shrink-0 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-transform group-hover:translate-x-1 sm:self-auto">
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_10px_var(--primary)]" />
+                      <span className="truncate font-mono text-xs text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">
+                        {repo}
+                      </span>
+                      <span className="shrink-0 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-transform group-hover:translate-x-1">
                         ↗
                       </span>
                     </a>
