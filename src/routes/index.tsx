@@ -26,15 +26,37 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const repos = [
-  "ahmad00haddad/memoria",
-  "ahmad00haddad/nas-irbid",
-  "ahmad00haddad/haddad-rate-card",
-  "ahmad00haddad/petvan-your-pet-s-comfort-delivered",
-  "ahmad00haddad/fazaa-jo",
-  "ahmad00haddad/lovable-production-hub",
-  "ahmad00haddad/faiihouse",
-  "ahmad00haddad/moujestudio",
+const projects = [
+  {
+    name: "Memoria | ميموريا",
+    url: "https://github.com/ahmad00haddad/memoria",
+    description: "المنصة الأولى المتخصصة في حجز مصورات الأعراس بكل سهولة وموثوقية."
+  },
+  {
+    name: "ناس إربد (Nas Irbid)",
+    url: "https://github.com/ahmad00haddad/nas-irbid",
+    description: "أرشيف حيّ لذاكرة مدينة إربد لتوثيق الحكايات عبر خريطة تفاعلية."
+  },
+  {
+    name: "PetVan",
+    url: "https://github.com/ahmad00haddad/petvan",
+    description: "تطبيق ويب متطور أحدث ثورة في العناية بالحيوانات الأليفة، يجلب العيادة والصالون إلى باب منزلك."
+  },
+  {
+    name: "فزعة (Fazaa-JO)",
+    url: "https://github.com/ahmad00haddad/fazaa-jo",
+    description: "منصة ويب تقدمية تتيح لك نشر طلب مساعدة طارئة ليتم تلبيته فوراً من أشخاص في منطقتك."
+  },
+  {
+    name: "Lovable Production Hub",
+    url: "https://github.com/ahmad00haddad/lovable-production-hub",
+    description: "بيئة مركزية وسريعة الاستجابة لمدير المشروع وأفراد طاقم التصوير للتحضير لأيام التصوير."
+  },
+  {
+    name: "Faii House",
+    url: "https://github.com/ahmad00haddad/faiihouse",
+    description: "محرك تسعير ذكي وسينمائي مصمم لوكالة إنتاج فيديو لتسعير المشاريع."
+  }
 ];
 
 function Index() {
@@ -170,8 +192,8 @@ function Index() {
             <div className="md:relative md:h-[860px]">
               <Card
                 src={work1}
-                alt="Laptop glowing in a dark room"
-                tags={["WEB", "AI"]}
+                alt="Memoria App"
+                tags={["REACT", "SUPABASE"]}
                 index="01"
                 title="Memoria"
                 className="md:absolute md:left-0 md:top-0 md:w-[54%]"
@@ -179,44 +201,49 @@ function Index() {
               />
               <Card
                 src={work2}
-                alt="Abstract dark green sculpture"
-                tags={["BRAND"]}
+                alt="Nas Irbid Map"
+                tags={["REACT", "MAPS"]}
                 index="02"
-                title="Mouje Studio"
+                title="Nas Irbid"
                 className="mt-8 md:absolute md:right-[2%] md:top-[16%] md:mt-0 md:w-[32%]"
                 ratio="aspect-[4/5]"
               />
               <Card
                 src={work3}
-                alt="Hands typing on a backlit keyboard"
-                tags={["PRODUCT", "AI"]}
+                alt="Faii House Pricing"
+                tags={["GSAP", "JS"]}
                 index="03"
-                title="Lovable Production Hub"
+                title="Faii House"
                 className="mt-8 md:absolute md:bottom-0 md:left-[30%] md:mt-0 md:w-[44%]"
                 ratio="aspect-[16/10]"
               />
             </div>
 
-            {/* Repo list */}
+            {/* Projects list */}
             <div className="mt-16 rounded-xl border border-border bg-card/40 backdrop-blur-md">
               <div className="flex items-center justify-between border-b border-border px-5 py-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                <span>Repositories</span>
-                <span>{repos.length}</span>
+                <span>Selected Work</span>
+                <span>{projects.length}</span>
               </div>
               <ul>
-                {repos.map((repo) => (
-                  <li key={repo} className="border-b border-border last:border-b-0">
+                {projects.map((project) => (
+                  <li key={project.name} className="border-b border-border last:border-b-0">
                     <a
-                      href={`https://github.com/${repo}`}
+                      href={project.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-5 py-4 transition-colors hover:bg-foreground/5"
+                      className="group flex flex-col justify-center gap-2 px-5 py-4 transition-colors hover:bg-foreground/5 sm:grid sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
                     >
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_10px_var(--primary)]" />
-                      <span className="truncate font-mono text-xs text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">
-                        {repo}
-                      </span>
-                      <span className="shrink-0 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-transform group-hover:translate-x-1">
+                      <div className="hidden h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_10px_var(--primary)] sm:block" />
+                      <div className="flex flex-col gap-1">
+                        <span className="font-mono text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
+                          {project.name}
+                        </span>
+                        <span className="text-xs text-muted-foreground sm:text-sm">
+                          {project.description}
+                        </span>
+                      </div>
+                      <span className="self-end shrink-0 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-transform group-hover:translate-x-1 sm:self-auto">
                         ↗
                       </span>
                     </a>
