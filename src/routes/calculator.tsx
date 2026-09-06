@@ -280,11 +280,15 @@ function CalculatorPage() {
 
               <button 
                 onClick={() => {
-                  navigator.clipboard.writeText(Estimate:  -  JOD);
+                  navigator.clipboard.writeText(`Estimate: ${min} - ${max} JOD`);
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                className={mt-10 w-full border py-4 text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-300 }
+                className={`mt-10 w-full border py-4 text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-300 ${
+                  copied 
+                    ? "border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_20px_rgba(34,197,94,0.2)]" 
+                    : "border-foreground bg-foreground text-background hover:bg-transparent hover:text-foreground"
+                }`}
               >
                 {copied ? "[ ESTIMATE COPIED ✓ ]" : "Copy Estimate"}
               </button>
