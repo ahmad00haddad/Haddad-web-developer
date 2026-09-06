@@ -347,7 +347,7 @@ function Dashboard() {
                     onClick={async (e) => {
                       e.preventDefault();
                       if (!proj.url) return alert("Please enter a LIVE URL first!");
-                      const autoUrl = `https://image.thum.io/get/width/1200/crop/900/${proj.url}`;
+                      const autoUrl = `https://api.microlink.io/?screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=3500&url=${proj.url}`;
                       try {
                         const { error } = await supabase.from("projects").update({ image_url: autoUrl }).eq("id", proj.id);
                         if (error) throw error;
