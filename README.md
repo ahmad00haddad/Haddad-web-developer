@@ -1,70 +1,62 @@
-# Ahmad Haddad: AI-Powered Digital Canvas
+# Ahmad Haddad - AI-Powered Digital Canvas 🌌✨
 
-Build a premium, Awwwards-winning style single-page portfolio website for Ahmad Haddad, a Computer Engineer and Web Developer who leverages AI to build modern digital experiences. The site must be extremely concise, visually striking, and avoid any long paragraphs or a "Skills" section. 
+Welcome to the official repository of my premium, single-page developer portfolio. 
+This project is designed with an **Awwwards-winning aesthetic**, focusing on dark mode elegance, massive typography, and high-end editorial layouts.
 
-**Design System & Theme:**
-- **Colors (Dark Mode):** Deep dark background (`#09090b` or `#000000`). Integrate a very subtle, soft olive/dark green radial gradient glow (e.g., `#2b3324` fading into the dark background) to add depth, matching a high-end cinematic vibe. Text should be off-white (`#f8fafc`) and muted grey (`#94a3b8`).
-- **Typography:** Use massive, bold display fonts (like Clash Display, Syne, or Playfair Display) for main headings. Use a clean modern sans-serif (like Inter or Geist) for small utility text. Mix serif and sans-serif for an editorial feel (e.g., "PRODUCT *DESIGN*").
+## 🌟 The Vision (الرؤية)
 
-**Layout & Sections (Single Page Architecture):**
+This portfolio is not just a collection of links; it's a **digital canvas**. 
+As a Computer Engineer and Web Developer, I leverage Artificial Intelligence to craft modern, striking web experiences. The design intentionally avoids traditional, cluttered "Skills" sections or long paragraphs. Instead, it relies on visual storytelling, cinematic depth (dark backgrounds with subtle olive/dark green glows), and a minimalist architecture.
 
-1. **Header / Navigation:**
-- Minimalist top navbar. 
-- Left side: A clean text logo "|| Ahmad ||". 
-- Right side: Clean, small links: "Projects", "About Me", "Contact".
+هذا البورتفوليو صُمم ليكون لوحة رقمية فنية تعكس هويتي كمهندس حاسوب ومطور ويب يعتمد على الذكاء الاصطناعي لبناء تجارب رقمية حديثة واستثنائية. التصميم يعتمد على الفخامة والبساطة (Minimalism)، مع استخدام خطوط ضخمة وتأثيرات بصرية سينمائية غامقة.
 
-2. **Hero Section (Inspired by Roshan Sahu & Jingjing Han references):**
-- Massive, screen-spanning typography reading "Creative" and "Dev" (or "Web" & "Engineer").
-- Create a collage effect: place 2-3 floating, high-quality placeholder thumbnail images behind and between the huge text layers using absolute positioning.
-- In the center or slightly offset, include a minimalist bio wrapped in large thin parentheses `( )`: 
-  "HELLO! I'm Ahmad Haddad, a Computer Engineer & Web Developer utilizing AI to build web experiences."
+## ✨ Key Features (أبرز المميزات)
 
-3. **Selected Work / Projects Section:**
-- Use a large watermark-style background text reading "W O R K" or "PROJECTS".
-- **Layout Style:** Create an asymmetrical, overlapping layout for the project cards. Some images should be large, others small. 
-- **Card Design:** Each project must have a sleek thumbnail image. Overlay glassmorphism pill-shaped tags on the images (e.g., "WEB", "AI"). Include small 90-degree rotated utility text on the sides of the layout (e.g., "UX/UI", "SINCE 2024") for an editorial magazine feel.
-- **GitHub List View:** Under the visual cards, include a sleek, minimalist dark-mode list of projects resembling a terminal/GitHub list with a small green dot indicator. Use these exact real repositories of mine as the data:
-  - ahmad00haddad/memoria
-  - ahmad00haddad/nas-irbid
-  - ahmad00haddad/haddad-rate-card
-  - ahmad00haddad/petvan-your-pet-s-comfort-delivered
-  - ahmad00haddad/fazaa-jo
-  - ahmad00haddad/lovable-production-hub
-  - ahmad00haddad/faiihouse
-  - ahmad00haddad/moujestudio
+- 🎨 **Cinematic Dark Mode:** Deep dark backgrounds (`#09090b`) with soft, subtle olive radial glows for a high-end, premium vibe.
+- 🖋️ **Editorial Typography:** A beautiful mix of massive display fonts and clean modern sans-serif for utility text, giving it a magazine-like feel.
+- 🖼️ **Asymmetrical Project Layout:** Overlapping, glassmorphism-styled project cards with absolute positioning to break the grid and stand out.
+- 💻 **Terminal-Style GitHub List:** A sleek, minimalist dark-mode list of my real GitHub repositories, complete with green active indicators.
+- 📱 **Fully Responsive:** Complex desktop overlaps gracefully simplify into a neat, readable column on mobile devices.
 
-4. **Footer / Contact Section:**
-- Extremely minimalist. A massive heading saying "Let's Talk".
-- Display the contact information clearly with clean typography and hover effects:
-  - LinkedIn: https://www.linkedin.com/in/ahmad00haddad/
-  - Email: ahmad000haddad@gmail.com
-  - WhatsApp: 00962799256345
+## 🔗 Selected Work (أبرز المشاريع المرفقة)
 
-**Technical & Styling Rules (Tailwind CSS):**
-- DO NOT include any "Skills" or "Tech Stack" section.
-- DO NOT add complex scroll animations yet (keep it static but stunning). Basic hover states on buttons and links are sufficient.
-- Heavily utilize Tailwind CSS for overlapping elements (`absolute`, `z-10`, `z-20`), glassmorphism (`backdrop-blur-md`, `bg-white/5`, `border-white/10`), and typography tracking (`tracking-tighter`, `leading-none`).
-- Ensure the layout is fully responsive, simplifying the overlapping images into a neat column on mobile devices.
+The portfolio highlights some of my key repositories, including:
+- `memoria`
+- `nas-irbid`
+- `haddad-rate-card`
+- `petvan-your-pet-s-comfort-delivered`
+- `fazaa-jo`
+- `lovable-production-hub`
+- `faiihouse`
+- `moujestudio`
 
-الصور المرفقة امثله على التصميم المطلوب ويمكنك الابتكار و الابداع
+## 📬 Let's Talk (تواصل معي)
 
-This project was built with [Lovable](https://lovable.dev).
+I am always open to discussing new projects, creative ideas, or opportunities.
+- **LinkedIn:** [Ahmad Haddad](https://www.linkedin.com/in/ahmad00haddad/)
+- **Email:** ahmad000haddad@gmail.com
+- **WhatsApp:** [00962799256345](https://wa.me/962799256345)
 
-## Build with Lovable
+## 🚀 Live Demo (المعاينة المباشرة)
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/247f1c51-febe-4c9d-a73a-fb1f223ec0c7).
+**Experience the digital canvas here:** [ahmad-haddad-ai-powered-digital-canvas.lovable.app](https://lovable.dev/projects/247f1c51-febe-4c9d-a73a-fb1f223ec0c7) *(Check Lovable for the active deployment link)*
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+---
 
-## Development
+## 💻 Tech Stack & Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Built with modern web technologies, AI tools, and **[Lovable](https://lovable.dev)**. The project heavily utilizes Tailwind CSS for overlapping elements (`absolute`, `z-20`), glassmorphism (`backdrop-blur-md`), and precise typography tracking (`tracking-tighter`).
+
+### Local Development (التشغيل المحلي)
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# Clone the repository
+git clone https://github.com/ahmad00haddad/Haddad-dev.git
+cd Haddad-dev
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
 ```
