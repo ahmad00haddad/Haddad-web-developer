@@ -53,7 +53,7 @@ export const initialProjectsData: Project[] = [];
 export async function resolveImageUrl(imageUrl: string | null, fallbackIndex: number, projectUrl?: string): Promise<string> {
   const fallback = FALLBACK_IMAGES[fallbackIndex % FALLBACK_IMAGES.length]!;
   if (!imageUrl) {
-    if (projectUrl) return \https://image.thum.io/get/width/1200/crop/900/\;
+    if (projectUrl) return `https://image.thum.io/get/width/1200/crop/900/${projectUrl}`;
     return fallback;
   }
   if (/^https?:\/\//.test(imageUrl) || imageUrl.startsWith("/")) return imageUrl;
