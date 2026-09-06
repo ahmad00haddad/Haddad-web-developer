@@ -12,6 +12,7 @@ function CalculatorPage() {
   const [designNeeded, setDesignNeeded] = useState(false);
   const [isRush, setIsRush] = useState(false);
   const [maintenance, setMaintenance] = useState("none");
+  const [copied, setCopied] = useState(false);
 
   const calculatePrice = () => {
     let baseMin = 0;
@@ -277,8 +278,15 @@ function CalculatorPage() {
                 )}
               </div>
 
-              <button className="mt-10 w-full border border-foreground bg-foreground py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-background transition-all hover:bg-transparent hover:text-foreground">
-                Copy Estimate
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText(Estimate:  -  JOD);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                className={mt-10 w-full border py-4 text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-300 }
+              >
+                {copied ? "[ ESTIMATE COPIED ✓ ]" : "Copy Estimate"}
               </button>
             </div>
           </div>
