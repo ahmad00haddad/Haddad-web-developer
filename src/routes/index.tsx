@@ -38,6 +38,7 @@ function Index() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     getProjects().then((data) => {
@@ -137,11 +138,11 @@ function Index() {
         <>
           <div 
             className="fixed inset-0 z-50 bg-background/60 backdrop-blur-sm transition-opacity" 
-            onClick={() => setSelectedProject(null)} 
+            onClick={() => { setSelectedProject(null); setIsZoomed(false); }} 
           />
           <div className="fixed right-0 top-0 bottom-0 z-50 flex w-full max-w-md flex-col overflow-y-auto border-l border-border/50 bg-card/95 p-8 shadow-2xl backdrop-blur-xl animate-in slide-in-from-right">
             <button 
-              onClick={() => setSelectedProject(null)}
+              onClick={() => { setSelectedProject(null); setIsZoomed(false); }}
               className="absolute right-6 top-6 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
             >
               [ Close ]
