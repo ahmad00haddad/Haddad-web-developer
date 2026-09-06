@@ -43,9 +43,10 @@ function Index() {
     getProjects().then((data) => {
       setProjectsData(data);
       if (data.length > 0) {
-        const shuffled = [...data].sort(() => 0.5 - Math.random());
+        const filteredData = data.filter(p => !p.repo.includes("Haddad-dev") && !p.repo.includes("ahmadhaddad"));
+        const shuffled = [...filteredData].sort(() => 0.5 - Math.random());
         while (shuffled.length < 6) {
-          shuffled.push(...data);
+          shuffled.push(...filteredData);
         }
         const selected6 = shuffled.slice(0, 6);
         setRandomProjects(selected6);
