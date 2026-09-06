@@ -219,20 +219,20 @@ function Index() {
         {/* Hero */}
         <section id="top" className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 sm:pt-16">
           <div className="relative">
-                        <div className="pointer-events-none absolute inset-0 hidden md:block">
+                        <div className="pointer-events-none absolute inset-0 -z-10 hidden md:block">
               <img
                 src={randomProjects[0]?.image || hero1}
                 alt="Project 1"
                 width={900}
                 height={1200}
-                className="absolute left-[4%] top-[20%] h-56 w-40 rounded-sm object-cover object-top opacity-[0.7] brightness-[0.7] saturate-[0.7] shadow-2xl transition-all duration-700 lg:h-72 lg:w-52"
+                className="absolute left-[4%] top-[20%] h-56 w-40 rounded-sm object-cover object-top opacity-[0.6] brightness-[0.7] saturate-[0.7] shadow-2xl transition-all duration-700 lg:h-72 lg:w-52"
               />
               <img
                 src={randomProjects[1]?.image || hero2}
                 alt="Project 2"
                 width={1200}
                 height={800}
-                className="absolute right-[2%] top-[45%] h-40 w-64 rounded-sm object-cover object-top opacity-[0.7] brightness-[0.7] saturate-[0.7] shadow-2xl transition-all duration-700 lg:h-52 lg:w-80"
+                className="absolute right-[2%] top-[45%] h-40 w-64 rounded-sm object-cover object-top opacity-[0.6] brightness-[0.7] saturate-[0.7] shadow-2xl transition-all duration-700 lg:h-52 lg:w-80"
               />
               <img
                 src={randomProjects[2]?.image || work2}
@@ -240,7 +240,7 @@ function Index() {
                 loading="lazy"
                 width={900}
                 height={1100}
-                className="absolute bottom-[-15%] left-[45%] h-40 w-32 rounded-sm object-cover object-top opacity-[0.7] brightness-[0.7] saturate-[0.7] shadow-2xl transition-all duration-700 lg:h-52 lg:w-40"
+                className="absolute bottom-[-15%] left-[45%] h-40 w-32 rounded-sm object-cover object-top opacity-[0.6] brightness-[0.7] saturate-[0.7] shadow-2xl transition-all duration-700 lg:h-52 lg:w-40"
               />
             </div>
 
@@ -278,14 +278,14 @@ function Index() {
                 alt="Project 1"
                 width={900}
                 height={1200}
-                className="h-44 w-full rounded-sm object-cover object-top opacity-[0.7] brightness-[0.7] saturate-[0.7] transition-all duration-700"
+                className="h-44 w-full rounded-sm object-cover object-top opacity-[0.6] brightness-[0.7] saturate-[0.7] transition-all duration-700"
               />
               <img
                 src={randomProjects[1]?.image || hero2}
                 alt="Project 2"
                 width={1200}
                 height={800}
-                className="h-44 w-full rounded-sm object-cover object-top opacity-[0.7] brightness-[0.7] saturate-[0.7] transition-all duration-700"
+                className="h-44 w-full rounded-sm object-cover object-top opacity-[0.6] brightness-[0.7] saturate-[0.7] transition-all duration-700"
               />
             </div>
           </div>
