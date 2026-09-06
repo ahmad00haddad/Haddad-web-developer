@@ -12,6 +12,24 @@ export const SKILLS = [
 
 export const BUCKET = "portfolio_images";
 
+
+const ESTIMATED_PRICES: Record<string, string> = {
+  "memoria": "1,800 - 3,000 JOD",
+  "nas-irbid": "1,500 - 2,500 JOD",
+  "haddad-rate-card": "350 - 500 JOD",
+  "petvan": "1,800 - 3,500 JOD",
+  "fazaa-jo": "2,500 - 4,500 JOD",
+  "lovable-production-hub": "2,000 - 3,500 JOD",
+  "faiihouse": "1,200 - 2,000 JOD",
+  "ahmadhaddad": "400 - 700 JOD",
+  "ababneh-security": "450 - 800 JOD",
+  "Haddad-web-developer": "400 - 700 JOD",
+  "alfyaa": "1,500 - 3,000 JOD",
+  "jeeran": "1,800 - 3,500 JOD",
+  "mouj-studio": "800 - 1,500 JOD",
+  "alen-jaber": "350 - 600 JOD"
+};
+
 export const FALLBACK_IMAGES = [work1, hero1, work2, work3, hero2];
 
 export type Project = {
@@ -23,6 +41,7 @@ export type Project = {
   desc: string;
   tech: string[];
   image_url: string | null;
+  estimatedPrice?: string;
   order_index: number;
   /** Resolved, displayable image (uploaded image or a bundled fallback). */
   image: string;
@@ -59,6 +78,7 @@ export async function getProjects(): Promise<Project[]> {
       tech: (row.tech ?? []) as string[],
       image_url: row.image_url,
       order_index: row.order_index,
+      estimatedPrice: ESTIMATED_PRICES[row.slug || ""] || "Price on request",
       image: await resolveImageUrl(row.image_url, index),
     })),
   );

@@ -96,6 +96,12 @@ function Index() {
                   </span>
                 ))}
               </div>
+
+              {selectedProject.estimatedPrice && (
+                <div className="mt-6 inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 px-4 py-2 font-mono text-xs font-bold text-primary">
+                  <span className="opacity-70">EST. VALUE:</span> {selectedProject.estimatedPrice}
+                </div>
+              )}
               
               <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
                 {selectedProject.desc}
