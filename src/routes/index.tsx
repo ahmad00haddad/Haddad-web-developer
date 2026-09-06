@@ -411,7 +411,7 @@ function Index() {
                     >
                       <span className="h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_10px_var(--primary)]" />
                       <span className="truncate font-mono text-xs text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">
-                        {project.repo.replace("ahmad00haddad/", "")}
+                        {project.repo.replace("ahmad00haddad", "")}
                       </span>
                       <span className="shrink-0 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-transform group-hover:translate-x-1">
                         ↗
