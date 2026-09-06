@@ -1,4 +1,4 @@
-﻿import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
 export const Route = createFileRoute("/calculator")({
@@ -97,7 +97,11 @@ function CalculatorPage() {
                   <button
                     key={type.id}
                     onClick={() => setProjectType(type.id)}
-                    className={lex flex-col items-start gap-1 rounded-xl border p-4 text-left transition-all \}
+                    className={`flex flex-col items-start gap-1 rounded-xl border p-4 text-left transition-all ${
+                      projectType === type.id
+                        ? "border-primary bg-primary/10 shadow-[0_0_15px_var(--primary)_inset]"
+                        : "border-border bg-card/20 hover:border-border/80 hover:bg-card/40"
+                    }`}
                   >
                     <span className="font-mono text-sm font-semibold">{type.label}</span>
                     <span className="text-[10px] text-muted-foreground">{type.desc}</span>
@@ -169,7 +173,11 @@ function CalculatorPage() {
                   <button
                     key={plan.id}
                     onClick={() => setMaintenance(plan.id)}
-                    className={ounded-lg border p-3 text-center text-xs font-mono transition-all \}
+                    className={`rounded-lg border p-3 text-center text-xs font-mono transition-all ${
+                      maintenance === plan.id
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-border bg-card/20 text-muted-foreground hover:bg-card/40"
+                    }`}
                   >
                     {plan.label}
                   </button>
