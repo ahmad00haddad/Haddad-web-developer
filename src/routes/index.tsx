@@ -108,7 +108,7 @@ function Index() {
               </p>
             </div>
             
-            <div className="mt-12">
+            <div className="mt-12 flex flex-col gap-3">
               <a 
                 href={selectedProject.url} 
                 target="_blank" 
@@ -117,6 +117,16 @@ function Index() {
               >
                 Visit Live Site ↗
               </a>
+              {selectedProject.repo && (
+                <a 
+                  href={`https://github.com/${selectedProject.repo.replace(/^\//, '')}`} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="block w-full text-center text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  [ View Source on GitHub ]
+                </a>
+              )}
             </div>
           </div>
         </>
