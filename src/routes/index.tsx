@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { getProjects, SKILLS, type Project } from "../data";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -132,6 +132,9 @@ function Index() {
             || Ahmad ||
           </a>
           <nav className="flex items-center gap-5 text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:gap-8 sm:text-xs">
+            <Link to="/calculator" className="text-primary transition-colors hover:text-primary/80">
+              [ Calculator ]
+            </Link>
             <a className="transition-colors hover:text-foreground" href="#work">
               Projects
             </a>
