@@ -87,7 +87,7 @@ export async function getProjects(): Promise<Project[]> {
       tech: (row.tech ?? []) as string[],
       image_url: row.image_url,
       order_index: row.order_index,
-      estimatedPrice: ESTIMATED_PRICES[row.slug || ""] || "Price on request",
+      estimatedPrice: ESTIMATED_PRICES[(row.repo || "").split("/").pop() || ""] || "Price on request",
       image: await resolveImageUrl(row.image_url, index, row.url),
     })),
   );
