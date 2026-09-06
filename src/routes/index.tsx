@@ -244,7 +244,7 @@ function Index() {
 
           <div className="relative z-10 pt-24">
             <div className="md:relative md:h-[860px]">
-              <div className="cursor-pointer md:absolute md:left-0 md:top-0 md:w-[54%]" onClick={() => setSelectedProject(projectsData[0])}>
+              <div className="cursor-pointer md:absolute md:left-0 md:top-0 md:w-[54%]" onClick={() => setSelectedProject(projectsData[0] ?? null)}>
                 <Card
                   src={work1}
                   alt="Memoria"
@@ -254,7 +254,7 @@ function Index() {
                   ratio="aspect-[16/10]"
                 />
               </div>
-              <div className="mt-8 cursor-pointer md:absolute md:right-[2%] md:top-[16%] md:mt-0 md:w-[32%]" onClick={() => setSelectedProject(projectsData[1])}>
+              <div className="mt-8 cursor-pointer md:absolute md:right-[2%] md:top-[16%] md:mt-0 md:w-[32%]" onClick={() => setSelectedProject(projectsData[1] ?? null)}>
                 <Card
                   src={work2}
                   alt="Nas Irbid"
@@ -264,7 +264,7 @@ function Index() {
                   ratio="aspect-[4/5]"
                 />
               </div>
-              <div className="mt-8 cursor-pointer md:absolute md:bottom-0 md:left-[30%] md:mt-0 md:w-[44%]" onClick={() => setSelectedProject(projectsData[6])}>
+              <div className="mt-8 cursor-pointer md:absolute md:bottom-0 md:left-[30%] md:mt-0 md:w-[44%]" onClick={() => setSelectedProject(projectsData[6] ?? null)}>
                 <Card
                   src={work3}
                   alt="Faii House"
