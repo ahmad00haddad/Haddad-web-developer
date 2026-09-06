@@ -223,28 +223,28 @@ function Index() {
         {/* Hero */}
         <section id="top" className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 sm:pt-16">
           <div className="relative">
-            <div className="pointer-events-none absolute inset-0 hidden md:block">
+                        <div className="pointer-events-none absolute inset-0 hidden md:block">
               <img
                 src={randomProjects[0]?.image || hero1}
-                alt="Dark architectural glass detail"
+                alt="Project 1"
                 width={900}
                 height={1200}
-                className="absolute left-[6%] top-[8%] h-56 w-40 rounded-sm object-cover object-top opacity-90 shadow-2xl lg:h-72 lg:w-52"
+                className="absolute left-[4%] top-[20%] h-56 w-40 rounded-sm object-cover object-top opacity-[0.25] brightness-50 saturate-50 shadow-2xl transition-all duration-700 lg:h-72 lg:w-52"
               />
               <img
                 src={randomProjects[1]?.image || hero2}
-                alt="Circuit board glowing in the dark"
+                alt="Project 2"
                 width={1200}
                 height={800}
-                className="absolute right-[4%] top-[28%] h-40 w-64 rounded-sm object-cover object-top opacity-90 shadow-2xl lg:h-52 lg:w-80"
+                className="absolute right-[2%] top-[45%] h-40 w-64 rounded-sm object-cover object-top opacity-[0.25] brightness-50 saturate-50 shadow-2xl transition-all duration-700 lg:h-52 lg:w-80"
               />
               <img
                 src={randomProjects[2]?.image || work2}
-                alt="Abstract dark green sculpture"
+                alt="Project 3"
                 loading="lazy"
                 width={900}
                 height={1100}
-                className="absolute bottom-[2%] left-[38%] h-40 w-32 rounded-sm object-cover object-top opacity-80 shadow-2xl lg:h-52 lg:w-40"
+                className="absolute bottom-[-15%] left-[45%] h-40 w-32 rounded-sm object-cover object-top opacity-[0.25] brightness-50 saturate-50 shadow-2xl transition-all duration-700 lg:h-52 lg:w-40"
               />
             </div>
 
@@ -276,20 +276,20 @@ function Index() {
             </div>
 
             {/* Mobile image column */}
-            <div className="mt-10 grid grid-cols-2 gap-3 md:hidden">
+            <div className="mt-10 grid grid-cols-2 gap-3 md:hidden pointer-events-none">
               <img
                 src={randomProjects[0]?.image || hero1}
-                alt="Dark architectural glass detail"
+                alt="Project 1"
                 width={900}
                 height={1200}
-                className="h-44 w-full rounded-sm object-cover object-top opacity-80"
+                className="h-44 w-full rounded-sm object-cover object-top opacity-[0.35] brightness-50 saturate-50 transition-all duration-700"
               />
               <img
                 src={randomProjects[1]?.image || hero2}
-                alt="Circuit board glowing in the dark"
+                alt="Project 2"
                 width={1200}
                 height={800}
-                className="h-44 w-full rounded-sm object-cover object-top opacity-80"
+                className="h-44 w-full rounded-sm object-cover object-top opacity-[0.35] brightness-50 saturate-50 transition-all duration-700"
               />
             </div>
           </div>
