@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { getProjects, SKILLS } from "../data";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import work1 from "@/assets/work-1.jpg";
@@ -27,130 +28,10 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const SKILLS = [
-  "REACT.JS", "TYPESCRIPT", "TAILWIND CSS", "SUPABASE",
-  "FRAMER MOTION", "GSAP 3", "TANSTACK QUERY", "RADIX UI", "PWA"
-];
-
-const MARQUEE_ITEMS = [...SKILLS, ...SKILLS];
-
-const projectsData = [
-  {
-    repo: "ahmad00haddad/memoria",
-    name: "Memoria",
-    desc: "The premier platform for booking wedding photographers seamlessly. Built with a 'Don\'t Make Me Think' philosophy, it transforms complex booking matrices into a delightful, zero-friction experience.",
-    tech: ["REACT", "SUPABASE", "TAILWIND"],
-    url: "https://github.com/ahmad00haddad/memoria",
-    image: work1
-  },
-  {
-    repo: "ahmad00haddad/nas-irbid",
-    name: "Nas Irbid",
-    desc: "A living archive of Irbid city\'s memory. Documenting stories of ordinary people and ancient professions through an interactive map and a cinematic documentary experience.",
-    tech: ["REACT", "MAPS", "FRAMER MOTION"],
-    url: "https://github.com/ahmad00haddad/nas-irbid",
-    image: hero1
-  },
-  {
-    repo: "ahmad00haddad/haddad-rate-card",
-    name: "Haddad Rate Card",
-    desc: "A minimalist digital rate card providing an elegant breakdown of web development services and pricing for prospective clients.",
-    tech: ["REACT", "TAILWIND", "UI/UX"],
-    url: "https://github.com/ahmad00haddad/haddad-rate-card",
-    image: work2
-  },
-  {
-    repo: "ahmad00haddad/petvan",
-    name: "PetVan",
-    desc: "Revolutionizing pet care in Jordan. A premium mobile vet clinic & salon booking PWA with a cinematic glassmorphism design.",
-    tech: ["PWA", "GLASSMORPHISM", "REACT"],
-    url: "https://github.com/ahmad00haddad/petvan",
-    image: work3
-  },
-  {
-    repo: "ahmad00haddad/fazaa-jo",
-    name: "Fazaa-JO",
-    desc: "An emergency help Progressive Web App. Instantly broadcast requests for roadside assistance, medical needs, or urgent rides to volunteers in your geo-fenced area.",
-    tech: ["REACT 18", "SUPABASE", "REACT QUERY"],
-    url: "https://github.com/ahmad00haddad/fazaa-jo",
-    image: hero2
-  },
-  {
-    repo: "ahmad00haddad/lovable-production-hub",
-    name: "Lovable Production Hub",
-    desc: "A centralized, real-time dashboard for film crews. Track project readiness, equipment status, and crew tasks instantly before the shoot day.",
-    tech: ["REACT", "REALTIME", "VITE"],
-    url: "https://github.com/ahmad00haddad/lovable-production-hub",
-    image: work1
-  },
-  {
-    repo: "ahmad00haddad/faiihouse",
-    name: "Faii House",
-    desc: "A cinematic, highly intelligent pricing engine built for a premier video production agency, turning a complex pricing matrix into a delightful mobile-first experience.",
-    tech: ["GSAP", "JS", "CSS GRID"],
-    url: "https://github.com/ahmad00haddad/faiihouse",
-    image: hero1
-  },
-  {
-    repo: "ahmad00haddad/ahmadhaddad",
-    name: "Ahmad Haddad Portfolio",
-    desc: "The source code for my personal digital portfolio and creative playground.",
-    tech: ["REACT", "TAILWIND"],
-    url: "https://github.com/ahmad00haddad/ahmadhaddad",
-    image: hero2
-  },
-  {
-    repo: "ahmad00haddad/ababneh-security",
-    name: "Ababneh Security",
-    desc: "Smart home guardian and security systems landing page with modern dark aesthetics.",
-    tech: ["UI/UX", "WEB"],
-    url: "https://github.com/ahmad00haddad/ababneh-security",
-    image: work2
-  },
-  {
-    repo: "ahmad00haddad/Haddad-web-developer",
-    name: "Digital Canvas",
-    desc: "AI-powered digital canvas and creative experiments repository.",
-    tech: ["AI", "REACT"],
-    url: "https://github.com/ahmad00haddad/Haddad-web-developer",
-    image: work3
-  },
-  {
-    repo: "ahmad00haddad/alfyaa",
-    name: "Alfyaa",
-    desc: "E-commerce or enterprise solution interface built with modern web technologies.",
-    tech: ["REACT", "TAILWIND"],
-    url: "https://github.com/ahmad00haddad/alfyaa",
-    image: work1
-  },
-  {
-    repo: "ahmad00haddad/jeeran",
-    name: "Jeeran",
-    desc: "Community neighborhood application designed for hyper-local connectivity.",
-    tech: ["WEB", "UI/UX"],
-    url: "https://github.com/ahmad00haddad/jeeran",
-    image: hero1
-  },
-  {
-    repo: "ahmad00haddad/mouj-studio",
-    name: "Mouj Studio",
-    desc: "Creative agency portfolio showcasing brand identities, digital products, and cinematic experiences.",
-    tech: ["BRANDING", "WEB"],
-    url: "https://github.com/ahmad00haddad/mouj-studio",
-    image: work2
-  },
-  {
-    repo: "ahmad00haddad/alen-jaber",
-    name: "Alen Jaber",
-    desc: "Personal brand portfolio for a creative professional, featuring minimalist typography.",
-    tech: ["REACT", "DESIGN"],
-    url: "https://github.com/ahmad00haddad/alen-jaber",
-    image: hero2
-  }
-];
-
 function Index() {
+  const [projectsData, setProjectsData] = useState(() => getProjects());
   const [visibleCount, setVisibleCount] = useState(5);
+  const MARQUEE_ITEMS = [...SKILLS, ...SKILLS];
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
