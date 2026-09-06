@@ -58,7 +58,9 @@ function CalculatorPage() {
     return { min: Math.round(baseMin), max: Math.round(baseMax) };
   };
 
-  const { min, max } = calculatePrice();
+  const { min: calcMin, max: calcMax } = calculatePrice();
+  const min = calcMin.toLocaleString("en-US");
+  const max = calcMax.toLocaleString("en-US");
 
   let monthly = 0;
   if (maintenance === "standard") monthly = 30;
