@@ -66,6 +66,24 @@ function CalculatorPage() {
   if (maintenance === "standard") monthly = 30;
   if (maintenance === "premium") monthly = 100;
 
+  const getInfrastructureCosts = () => {
+    let monthly = 0;
+    let annual = 15; // Standard Domain Name (approx JOD)
+    
+    if (projectType === "landing") {
+      monthly = 0; // Vercel Free Tier
+    } else if (projectType === "corporate") {
+      monthly = 5; // Basic hosting / CMS
+    } else if (projectType === "ecommerce") {
+      monthly = 25; // Hosting + E-commerce DB
+    } else if (projectType === "webapp") {
+      monthly = 45; // Supabase Pro ($25) + Vercel Pro ($20) + AI APIs
+    }
+    
+    return { monthly, annual };
+  };
+  const infra = getInfrastructureCosts();
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
       <div className="olive-glow pointer-events-none fixed inset-0 opacity-40" aria-hidden="true" />
@@ -201,12 +219,33 @@ function CalculatorPage() {
                   <span className="text-xl text-muted-foreground">-</span>
                   <span className="font-display text-4xl font-extrabold text-foreground sm:text-5xl">{max}</span>
                 </div>
-                <div className="mt-1 text-sm font-mono text-primary">JOD</div>
+                <div className="mt-1 text-sm font-mono text-primary">JOD (One-time)</div>
+              </div>
+
+              {/* 3rd Party Costs */}
+              <div className="mb-4 rounded-lg border border-yellow-500/20 bg-yellow-500/5 p-4">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-yellow-500/70 mb-2">3rd-Party Infrastructure</div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-xs text-muted-foreground">Hosting, DB, API:</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-mono text-sm font-bold text-foreground">~{infra.monthly}</span>
+                      <span className="text-[10px] text-muted-foreground">JOD/mo</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-xs text-muted-foreground">Domain Name:</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-mono text-sm font-bold text-foreground">~{infra.annual}</span>
+                      <span className="text-[10px] text-muted-foreground">JOD/yr</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {monthly > 0 && (
-                <div className="mb-8 rounded-lg border border-border/50 bg-background/50 p-4">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Ongoing Retainer</div>
+                <div className="mb-8 rounded-lg border border-primary/20 bg-primary/5 p-4">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-primary/70">Developer Retainer</div>
                   <div className="mt-1 flex items-baseline gap-1">
                     <span className="font-mono text-xl font-bold">{monthly}</span>
                     <span className="text-xs text-muted-foreground">JOD / month</span>
