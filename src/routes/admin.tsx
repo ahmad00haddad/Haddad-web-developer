@@ -333,16 +333,32 @@ function Dashboard() {
               </div>
 
               <div className="mb-6">
-                <button
-                  type="button"
-                  onClick={() => openImagePicker(proj.id)}
-                  className="group/img relative block h-40 w-full overflow-hidden rounded-xl border border-border bg-background/50"
-                >
-                  <img src={proj.image} alt={proj.name} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105" />
-                  <span className="absolute inset-0 flex items-center justify-center bg-background/70 text-[10px] uppercase tracking-[0.2em] text-foreground opacity-0 transition-opacity group-hover/img:opacity-100">
-                    {uploadingId === proj.id ? "Uploading..." : "Click to upload image"}
-                  </span>
-                </button>
+                <div className="mb-6 relative">
+                  <button
+                    onClick={() => openImagePicker(proj.id)}
+                    className="group/img relative block h-40 w-full overflow-hidden rounded-xl border border-border bg-background/50"
+                  >
+                    <img src={proj.image} alt={proj.name} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105" />
+                    <span className="absolute inset-0 flex items-center justify-center bg-background/70 text-[10px] uppercase tracking-[0.2em] text-foreground opacity-0 transition-opacity group-hover/img:opacity-100">
+                      {uploadingId === proj.id ? "Uploading..." : "Click to upload image"}
+                    </span>
+                  </button>
+                  <button
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      if (!proj.url) return alert("Please enter a LIVE URL first!");
+                      const autoUrl = `https://image.thum.io/get/width/1200/crop/900/${proj.url}`;
+                      try {
+                        const { error } = await supabase.from("projects").update({ image_url: autoUrl }).eq("id", proj.id);
+                        if (error) throw error;
+                        setProjects(prev => prev.map(p => p.id === proj.id ? { ...p, image_url: autoUrl, image: autoUrl } : p));
+                      } catch (err: any) { alert("Failed: " + err.message); }
+                    }}
+                    className="absolute left-2 top-2 z-10 rounded-md bg-primary/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary-foreground backdrop-blur-md transition-transform hover:scale-105"
+                  >
+                    🚀 Auto Fetch Thumbnail
+                  </button>
+                </div>
               </div>
               
               <div className="grid gap-6 md:grid-cols-2">
