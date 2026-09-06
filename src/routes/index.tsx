@@ -403,7 +403,7 @@ function Index() {
 
         {/* Skills Marquee */}
         <section className="relative overflow-hidden border-y border-border bg-card/20 py-8">
-          <div className="flex w-[200%] animate-marquee items-center gap-16">
+          <div className="flex w-max animate-marquee items-center gap-16 pr-16">
             {MARQUEE_ITEMS.map((skill, i) => (
               <span 
                 key={i} 

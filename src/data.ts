@@ -6,8 +6,12 @@ import work3 from "@/assets/work-3.jpg";
 import { supabase } from "@/integrations/supabase/client";
 
 export const SKILLS = [
-  "REACT.JS", "TYPESCRIPT", "TAILWIND CSS", "SUPABASE",
-  "FRAMER MOTION", "GSAP 3", "TANSTACK QUERY", "RADIX UI", "PWA"
+  "React.js", "Next.js", "TypeScript", "JavaScript", "Supabase", "Tailwind CSS",
+  "Node.js", "Express", "PostgreSQL", "MongoDB", "GSAP", "Framer Motion", 
+  "UI/UX Design", "Figma", "Progressive Web Apps (PWA)", "API Integration",
+  "System Architecture", "Web Animations", "Creative Coding", "Vite", 
+  "AI Integration", "Prompt Engineering", "SEO Optimization", "Performance Tuning",
+  "Git / GitHub", "Vercel", "Cloudflare"
 ];
 
 export const BUCKET = "portfolio_images";
