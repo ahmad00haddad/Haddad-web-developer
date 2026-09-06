@@ -31,6 +31,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [projectsData, setProjectsData] = useState<Project[]>([]);
   const [randomProjects, setRandomProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadProgress, setLoadProgress] = useState(0);
   const [visibleCount, setVisibleCount] = useState(5);
   const MARQUEE_ITEMS = [...SKILLS, ...SKILLS];
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -45,9 +47,41 @@ function Index() {
         while (shuffled.length < 6) {
           shuffled.push(...data);
         }
-        setRandomProjects(shuffled.slice(0, 6));
+        const selected6 = shuffled.slice(0, 6);
+        setRandomProjects(selected6);
+
+        // Preload exactly the 6 images that will be rendered
+        const imagesToLoad = [
+          selected6[0]?.image || hero1,
+          selected6[1]?.image || hero2,
+          selected6[2]?.image || work2,
+          selected6[3]?.image || work1,
+          selected6[4]?.image || work2,
+          selected6[5]?.image || work3,
+        ];
+
+        let loadedCount = 0;
+        imagesToLoad.forEach(src => {
+          const img = new window.Image();
+          img.src = src;
+          const updateProgress = () => {
+            loadedCount++;
+            setLoadProgress(Math.round((loadedCount / imagesToLoad.length) * 100));
+            if (loadedCount === imagesToLoad.length) {
+              setTimeout(() => setIsLoading(false), 500); // Wait half a second at 100% for aesthetic effect
+            }
+          };
+          img.onload = updateProgress;
+          img.onerror = updateProgress;
+        });
+
+      } else {
+        setIsLoading(false);
       }
-    }).catch(() => setProjectsData([]));
+    }).catch(() => {
+      setProjectsData([]);
+      setIsLoading(false);
+    });
   }, []);
 
   useEffect(() => {
@@ -60,6 +94,25 @@ function Index() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Preloader */}
+      <div 
+        className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ease-in-out ${isLoading ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      >
+        <div className="text-center font-display">
+          <div className="mb-6 text-xs font-bold tracking-[0.4em] text-muted-foreground uppercase">
+            // Loading Canvas //
+          </div>
+          <div className="relative text-7xl font-extrabold tracking-tighter text-foreground sm:text-9xl">
+            {loadProgress}<span className="absolute -right-12 top-4 text-3xl text-primary sm:-right-16 sm:top-8 sm:text-5xl">%</span>
+          </div>
+          <div className="mx-auto mt-12 h-[2px] w-64 overflow-hidden rounded-full bg-foreground/10">
+            <div 
+              className="h-full bg-primary transition-all duration-300 ease-out" 
+              style={{ width: `${loadProgress}%` }} 
+            />
+          </div>
+        </div>
+      </div>
       <div className="olive-glow pointer-events-none fixed inset-0 opacity-70" aria-hidden="true" />
 
       {/* Floating Hover Image */}
