@@ -50,9 +50,12 @@ export type Project = {
 export const initialProjectsData: Project[] = [];
 
 /** Turn a stored image reference (storage path or absolute URL) into a usable src. */
-export async function resolveImageUrl(imageUrl: string | null, fallbackIndex: number): Promise<string> {
+export async function resolveImageUrl(imageUrl: string | null, fallbackIndex: number, projectUrl?: string): Promise<string> {
   const fallback = FALLBACK_IMAGES[fallbackIndex % FALLBACK_IMAGES.length]!;
-  if (!imageUrl) return fallback;
+  if (!imageUrl) {
+    if (projectUrl) return \https://image.thum.io/get/width/1200/crop/900/\;
+    return fallback;
+  }
   if (/^https?:\/\//.test(imageUrl) || imageUrl.startsWith("/")) return imageUrl;
   const { data } = await supabase.storage.from(BUCKET).createSignedUrl(imageUrl, 60 * 60 * 24 * 7);
   return data?.signedUrl ?? fallback;
@@ -79,7 +82,7 @@ export async function getProjects(): Promise<Project[]> {
       image_url: row.image_url,
       order_index: row.order_index,
       estimatedPrice: ESTIMATED_PRICES[row.slug || ""] || "Price on request",
-      image: await resolveImageUrl(row.image_url, index),
+      image: await resolveImageUrl(row.image_url, index, row.url),
     })),
   );
 }

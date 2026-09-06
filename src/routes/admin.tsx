@@ -215,7 +215,7 @@ function Dashboard() {
       tech: (data.tech ?? []) as string[],
       image_url: data.image_url,
       order_index: data.order_index,
-      image: await resolveImageUrl(data.image_url, 0),
+      image: await resolveImageUrl(data.image_url, 0, data.url),
     };
     void persistOrder([created, ...projects]);
   };
@@ -246,7 +246,8 @@ function Dashboard() {
     setUploadingId(projectId);
     try {
       const path = await uploadProjectImage(projectId, file);
-      const preview = await resolveImageUrl(path, 0);
+      const project = projects.find(p => p.id === projectId);
+      const preview = await resolveImageUrl(path, 0, project?.url);
       setProjects((prev) =>
         prev.map((p) => (p.id === projectId ? { ...p, image_url: path, image: preview } : p)),
       );
