@@ -27,7 +27,9 @@ const ESTIMATED_PRICES: Record<string, string> = {
   "alfyaa": "1,500 - 3,000 JOD",
   "jeeran": "1,800 - 3,500 JOD",
   "mouj-studio": "800 - 1,500 JOD",
-  "alen-jaber": "350 - 600 JOD"
+  "alen-jaber": "350 - 600 JOD",
+  "finance-app": "2,000 - 4,000 JOD",
+  "quote-builder": "800 - 1,500 JOD"
 };
 
 export const FALLBACK_IMAGES = [work1, hero1, work2, work3, hero2];
