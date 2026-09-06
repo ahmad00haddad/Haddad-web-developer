@@ -30,6 +30,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [projectsData, setProjectsData] = useState<Project[]>([]);
+  const [randomProjects, setRandomProjects] = useState<Project[]>([]);
   const [visibleCount, setVisibleCount] = useState(5);
   const MARQUEE_ITEMS = [...SKILLS, ...SKILLS];
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -37,7 +38,16 @@ function Index() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
-    getProjects().then(setProjectsData).catch(() => setProjectsData([]));
+    getProjects().then((data) => {
+      setProjectsData(data);
+      if (data.length > 0) {
+        const shuffled = [...data].sort(() => 0.5 - Math.random());
+        while (shuffled.length < 6) {
+          shuffled.push(...data);
+        }
+        setRandomProjects(shuffled.slice(0, 6));
+      }
+    }).catch(() => setProjectsData([]));
   }, []);
 
   useEffect(() => {
@@ -162,21 +172,21 @@ function Index() {
           <div className="relative">
             <div className="pointer-events-none absolute inset-0 hidden md:block">
               <img
-                src={hero1}
+                src={randomProjects[0]?.image || hero1}
                 alt="Dark architectural glass detail"
                 width={900}
                 height={1200}
                 className="absolute left-[6%] top-[8%] h-56 w-40 rounded-sm object-cover object-top opacity-90 shadow-2xl lg:h-72 lg:w-52"
               />
               <img
-                src={hero2}
+                src={randomProjects[1]?.image || hero2}
                 alt="Circuit board glowing in the dark"
                 width={1200}
                 height={800}
                 className="absolute right-[4%] top-[28%] h-40 w-64 rounded-sm object-cover object-top opacity-90 shadow-2xl lg:h-52 lg:w-80"
               />
               <img
-                src={work2}
+                src={randomProjects[2]?.image || work2}
                 alt="Abstract dark green sculpture"
                 loading="lazy"
                 width={900}
@@ -215,14 +225,14 @@ function Index() {
             {/* Mobile image column */}
             <div className="mt-10 grid grid-cols-2 gap-3 md:hidden">
               <img
-                src={hero1}
+                src={randomProjects[0]?.image || hero1}
                 alt="Dark architectural glass detail"
                 width={900}
                 height={1200}
                 className="h-44 w-full rounded-sm object-cover object-top opacity-80"
               />
               <img
-                src={hero2}
+                src={randomProjects[1]?.image || hero2}
                 alt="Circuit board glowing in the dark"
                 width={1200}
                 height={800}
@@ -263,33 +273,33 @@ function Index() {
 
           <div className="relative z-10 pt-24">
             <div className="md:relative md:h-[860px]">
-              <div className="cursor-pointer md:absolute md:left-0 md:top-0 md:w-[54%]" onClick={() => setSelectedProject(projectsData[0] ?? null)}>
+              <div className="cursor-pointer md:absolute md:left-0 md:top-0 md:w-[54%]" onClick={() => setSelectedProject(randomProjects[3] ?? projectsData[0] ?? null)}>
                 <Card
-                  src={work1}
-                  alt="Memoria"
-                  tags={["REACT", "SUPABASE"]}
+                  src={randomProjects[3]?.image || work1}
+                  alt={randomProjects[3]?.name || "Memoria"}
+                  tags={randomProjects[3]?.tech?.slice(0, 2) || ["REACT", "SUPABASE"]}
                   index="01"
-                  title="Memoria"
+                  title={randomProjects[3]?.name || "Memoria"}
                   ratio="aspect-[16/10]"
                 />
               </div>
-              <div className="mt-8 cursor-pointer md:absolute md:right-[2%] md:top-[16%] md:mt-0 md:w-[32%]" onClick={() => setSelectedProject(projectsData[1] ?? null)}>
+              <div className="mt-8 cursor-pointer md:absolute md:right-[2%] md:top-[16%] md:mt-0 md:w-[32%]" onClick={() => setSelectedProject(randomProjects[4] ?? projectsData[1] ?? null)}>
                 <Card
-                  src={work2}
-                  alt="Nas Irbid"
-                  tags={["REACT", "MAPS"]}
+                  src={randomProjects[4]?.image || work2}
+                  alt={randomProjects[4]?.name || "Nas Irbid"}
+                  tags={randomProjects[4]?.tech?.slice(0, 2) || ["REACT", "MAPS"]}
                   index="02"
-                  title="Nas Irbid"
+                  title={randomProjects[4]?.name || "Nas Irbid"}
                   ratio="aspect-[4/5]"
                 />
               </div>
-              <div className="mt-8 cursor-pointer md:absolute md:bottom-0 md:left-[30%] md:mt-0 md:w-[44%]" onClick={() => setSelectedProject(projectsData[6] ?? null)}>
+              <div className="mt-8 cursor-pointer md:absolute md:bottom-0 md:left-[30%] md:mt-0 md:w-[44%]" onClick={() => setSelectedProject(randomProjects[5] ?? projectsData[6] ?? null)}>
                 <Card
-                  src={work3}
-                  alt="Faii House"
-                  tags={["GSAP", "JS"]}
+                  src={randomProjects[5]?.image || work3}
+                  alt={randomProjects[5]?.name || "Faii House"}
+                  tags={randomProjects[5]?.tech?.slice(0, 2) || ["GSAP", "JS"]}
                   index="03"
-                  title="Faii House"
+                  title={randomProjects[5]?.name || "Faii House"}
                   ratio="aspect-[16/10]"
                 />
               </div>
