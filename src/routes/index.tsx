@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { getProjects, SKILLS } from "../data";
+import { getProjects, SKILLS, type Project } from "../data";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import work1 from "@/assets/work-1.jpg";
@@ -29,12 +29,16 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [projectsData, setProjectsData] = useState(() => getProjects());
+  const [projectsData, setProjectsData] = useState<Project[]>([]);
   const [visibleCount, setVisibleCount] = useState(5);
   const MARQUEE_ITEMS = [...SKILLS, ...SKILLS];
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
-  const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    getProjects().then(setProjectsData).catch(() => setProjectsData([]));
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
