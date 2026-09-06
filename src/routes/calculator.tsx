@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { ScrambleText } from "@/components/ScrambleText";
 
 export const Route = createFileRoute("/calculator")({
   component: CalculatorPage,
@@ -119,7 +120,7 @@ function CalculatorPage() {
                     onClick={() => setProjectType(type.id)}
                     className={`flex flex-col items-start gap-1 rounded-xl border p-4 text-left transition-all ${
                       projectType === type.id
-                        ? "border-primary bg-primary/10 shadow-[0_0_15px_var(--primary)_inset]"
+                        ? "border-primary bg-primary/5 shadow-[0_0_20px_color-mix(in_oklab,var(--primary)_15%,transparent)_inset] text-primary scale-[1.02]"
                         : "border-border bg-card/20 hover:border-border/80 hover:bg-card/40"
                     }`}
                   >
@@ -153,7 +154,7 @@ function CalculatorPage() {
             <section className="space-y-4">
               <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">3. Requirements</h2>
               <div className="space-y-3">
-                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-border bg-card/20 p-4 transition-colors hover:bg-card/40">
+                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-border bg-card/10 p-4 transition-all hover:bg-card/30 hover:border-border/50 focus-within:border-primary">
                   <div className="flex flex-col">
                     <span className="font-mono text-sm">UI/UX Concept Creation</span>
                     <span className="text-[10px] text-muted-foreground">Design from scratch (+20%)</span>
@@ -166,7 +167,7 @@ function CalculatorPage() {
                   />
                 </label>
 
-                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-border bg-card/20 p-4 transition-colors hover:bg-card/40">
+                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-border bg-card/10 p-4 transition-all hover:bg-card/30 hover:border-border/50 focus-within:border-primary">
                   <div className="flex flex-col">
                     <span className="font-mono text-sm">Rush Delivery</span>
                     <span className="text-[10px] text-muted-foreground">Expedited timeline (+30%)</span>
@@ -195,7 +196,7 @@ function CalculatorPage() {
                     onClick={() => setMaintenance(plan.id)}
                     className={`rounded-lg border p-3 text-center text-xs font-mono transition-all ${
                       maintenance === plan.id
-                        ? "border-primary bg-primary/10 text-primary"
+                        ? "border-primary bg-primary/5 shadow-[0_0_15px_color-mix(in_oklab,var(--primary)_15%,transparent)_inset] text-primary scale-[1.02]"
                         : "border-border bg-card/20 text-muted-foreground hover:bg-card/40"
                     }`}
                   >
@@ -276,7 +277,7 @@ function CalculatorPage() {
                 )}
               </div>
 
-              <button className="mt-8 w-full rounded-full bg-foreground py-4 text-xs font-bold uppercase tracking-[0.2em] text-background transition-transform hover:scale-[1.02]">
+              <button className="mt-10 w-full border border-foreground bg-foreground py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-background transition-all hover:bg-transparent hover:text-foreground">
                 Copy Estimate
               </button>
             </div>
