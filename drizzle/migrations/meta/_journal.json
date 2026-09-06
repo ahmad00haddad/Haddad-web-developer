@@ -8,6 +8,13 @@
       "when": 1788691101774,
       "tag": "0000_create_projects",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1788691123899,
+      "tag": "0001_portfolio_images_policies",
+      "breakpoints": true
     }
   ]
 }
