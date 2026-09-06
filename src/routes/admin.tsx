@@ -337,7 +337,7 @@ function Dashboard() {
                   onClick={() => openImagePicker(proj.id)}
                   className="group/img relative block h-40 w-full overflow-hidden rounded-xl border border-border bg-background/50"
                 >
-                  <img src={proj.image} alt={proj.name} className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105" />
+                  <img src={proj.image} alt={proj.name} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105" />
                   <span className="absolute inset-0 flex items-center justify-center bg-background/70 text-[10px] uppercase tracking-[0.2em] text-foreground opacity-0 transition-opacity group-hover/img:opacity-100">
                     {uploadingId === proj.id ? "Uploading..." : "Click to upload image"}
                   </span>

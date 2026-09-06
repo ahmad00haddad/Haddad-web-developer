@@ -64,7 +64,7 @@ function Index() {
             height: "180px"
           }}
         >
-          <img src={hoveredImage} className="h-full w-full object-cover" alt="Preview" />
+          <img src={hoveredImage} className="h-full w-full object-cover object-top" alt="Preview" />
         </div>
       )}
 
@@ -85,7 +85,7 @@ function Index() {
             
             <div className="mt-8 flex-1">
               <div className="overflow-hidden rounded-lg">
-                <img src={selectedProject.image} className="h-48 w-full object-cover" alt={selectedProject.name} />
+                <img src={selectedProject.image} className="h-48 w-full object-cover object-top" alt={selectedProject.name} />
               </div>
               
               <h2 className="mt-8 font-display text-4xl tracking-tight">{selectedProject.name}</h2>
@@ -153,14 +153,14 @@ function Index() {
                 alt="Dark architectural glass detail"
                 width={900}
                 height={1200}
-                className="absolute left-[6%] top-[8%] h-56 w-40 rounded-sm object-cover opacity-90 shadow-2xl lg:h-72 lg:w-52"
+                className="absolute left-[6%] top-[8%] h-56 w-40 rounded-sm object-cover object-top opacity-90 shadow-2xl lg:h-72 lg:w-52"
               />
               <img
                 src={hero2}
                 alt="Circuit board glowing in the dark"
                 width={1200}
                 height={800}
-                className="absolute right-[4%] top-[28%] h-40 w-64 rounded-sm object-cover opacity-90 shadow-2xl lg:h-52 lg:w-80"
+                className="absolute right-[4%] top-[28%] h-40 w-64 rounded-sm object-cover object-top opacity-90 shadow-2xl lg:h-52 lg:w-80"
               />
               <img
                 src={work2}
@@ -168,7 +168,7 @@ function Index() {
                 loading="lazy"
                 width={900}
                 height={1100}
-                className="absolute bottom-[2%] left-[38%] h-40 w-32 rounded-sm object-cover opacity-80 shadow-2xl lg:h-52 lg:w-40"
+                className="absolute bottom-[2%] left-[38%] h-40 w-32 rounded-sm object-cover object-top opacity-80 shadow-2xl lg:h-52 lg:w-40"
               />
             </div>
 
@@ -206,14 +206,14 @@ function Index() {
                 alt="Dark architectural glass detail"
                 width={900}
                 height={1200}
-                className="h-44 w-full rounded-sm object-cover opacity-80"
+                className="h-44 w-full rounded-sm object-cover object-top opacity-80"
               />
               <img
                 src={hero2}
                 alt="Circuit board glowing in the dark"
                 width={1200}
                 height={800}
-                className="h-44 w-full rounded-sm object-cover opacity-80"
+                className="h-44 w-full rounded-sm object-cover object-top opacity-80"
               />
             </div>
           </div>
@@ -429,7 +429,7 @@ function Card({
           src={src}
           alt={alt}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute left-4 top-4 flex gap-2">
           {tags.map((t) => (
