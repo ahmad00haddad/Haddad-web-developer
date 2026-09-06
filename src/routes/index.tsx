@@ -198,13 +198,8 @@ function Index() {
 
       <div className="relative z-10">
         {/* Nav */}
-        <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 sm:px-8">
-          <a
-            href="#top"
-            className="font-display text-sm font-bold tracking-[0.25em] text-foreground"
-          >
-            || Ahmad ||
-          </a>
+        <header className="mx-auto flex max-w-7xl items-center justify-end px-5 py-6 sm:px-8">
+          
           <nav className="flex items-center gap-5 text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:gap-8 sm:text-xs">
             <Link to="/calculator" className="text-primary transition-colors hover:text-primary/80">
               [ Calculator ]
